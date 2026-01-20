@@ -16,12 +16,20 @@ export default function Movies() {
         <>
             <div className="container">
                 <h1>Film disponibili:</h1>
-                <ul className="list-group list-group-flush">
+                <div className="row row-cols-1 row-cols-md-3 g-4">
                     {movies.map((movie) => (
-                        <li key={movie.id} className="list-group-item">{movie.title}</li>
+                        <div key={movie.id} className="col">
+                            <div className="card h-100">
+                                <img src={`http://localhost:4416/img/${movie.image}`} className="card-img-top" alt={movie.title} />
+                                <div className="card-body">
+                                    <h5 className="card-title">{movie.title}</h5>
+                                    <p className="card-text">{movie.abstract}</p>
+                                </div>
+                            </div>
+                        </div>
                     ))
                     }
-                </ul>
+                </div>
 
             </div>
         </>
