@@ -1,7 +1,12 @@
+import { Link } from "react-router-dom";
+
 export default function Home() {
     return (
-        <>
-            <h1>SOno home</h1>
-        </>
+
+        <div className="hero">
+
+            <Link className="btn btn-warning mb-3 fs-3" to={"/movies"}>Film belli ma brutti</Link>
+
+        </div>
     )
 }
