@@ -8,10 +8,6 @@
         max-width: 100%;
     }
 
-    .navbar.bg-body-tertiary {
-        background-color: #F2F2F2 !important;
-    }
-
     .hero {
         background-image: url('./assets/image/hero.png');
         background-size: cover;

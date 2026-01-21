@@ -4,8 +4,10 @@ import Header from "../components/Header";
 export default function BaseLayout() {
     return (
         <>
-            <Header />
-            <Outlet />
+            <main className="bg-dark">
+                <Header />
+                <Outlet />
+            </main>
         </>
     )
 

@@ -9,7 +9,7 @@ export default function Header() {
     return (
         <>
             <header>
-                <nav className="navbar navbar-expand-lg bg-body-tertiary">
+                <nav className="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
                     <div className="container-fluid">
                         <NavLink className="navbar-brand" to="#">
                             <img src={Logo} alt="Logo" width="80" height="50" className="d-inline-block align-text-top" />
