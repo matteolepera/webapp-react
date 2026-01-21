@@ -9,12 +9,11 @@
     }
 
     .hero {
-        background-image: url('./assets/image/hero.png');
+        background-image: url('./assets/image/hero_f2.png');
         background-size: cover;
         background-position: top center;
         min-height: 88vh;
         display: flex;
         align-items: end;
-        justify-content: center;
-        color: #F2F2F2;
+        justify-content: right;
     }

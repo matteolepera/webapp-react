@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function MovieCard({ movie }) {
     const backendBaseUrl = import.meta.env.
         VITE_BACKEND_URL;
@@ -24,9 +26,9 @@ export default function MovieCard({ movie }) {
                 <div className="small text-white">
                     <strong>Regia:</strong> {movie.director}
                 </div>
-                <button className="btn btn-sm btn-outline-light mt-2 w-100">
+                <Link to={`/movies/${movie.id}`} className="btn btn-sm btn-outline-light mt-2 w-100">
                     Maggiori info
-                </button>
+                </Link>
             </div>
         </div>
     )

@@ -18,8 +18,79 @@ export default function MovieDetails() {
 
 
     return (
-        <>
-            <h3 className="text-white">Pagina singolo film</h3>
-        </>
+        <div className="bg-dark text-white min-vh-100">
+            <div
+                className="position-relative"
+                style={{
+                    height: '60vh',
+                    background: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(33,37,41,1)), url(http://localhost:4416/img/${movie.image})`,
+                    backgroundSize: 'cover',
+                }}
+            >
+                <div className="container h-100 d-flex align-items-end pb-4">
+                    <div className="row w-100">
+                        <div className="col-md-8">
+                            <h1 className="display-4 fw-bold mb-3">{movie.title}</h1>
+                            <div className="d-flex align-items-center gap-3 mb-3">
+                                <span className="badge bg-dark border border-secondary">{movie.release_year}</span>
+                                <span className="badge bg-dark border border-secondary">{movie.genre}</span>
+                            </div>
+                            <p className=" mb-3">{movie.abstract}</p>
+                            <button className="btn btn-light btn-lg me-2">
+                                ▶️ Riproduci
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="container p-4">
+                <div className="row mt-5">
+                    <div className="col-12">
+                        <div className="d-flex justify-content-between align-items-center mb-4">
+                            <h3>Recensioni</h3>
+                            <button className="btn btn-dark">Scrivi una recensione</button>
+                        </div>
+
+                        <div className="row g-3">
+                            {movie.reviews && movie.reviews.length > 0 ? (
+                                movie.reviews.map((review) => (
+                                    <div key={review.id} className="col-12">
+                                        <div className="card text-bg-dark border-secondary">
+                                            <div className="card-body">
+                                                <div className="d-flex justify-content-between align-items-start mb-2">
+                                                    <div>
+                                                        <h5 className="card-title mb-1">{review.name}</h5>
+                                                        <small className="text-white">{review.text}</small>
+                                                    </div>
+                                                    <span className="badge bg-warning text-dark">
+                                                        ⭐ {review.vote}/10
+                                                    </span>
+                                                </div>
+                                                <p className="card-text mt-3"></p>
+                                                <div className="d-flex gap-2 mt-3">
+                                                    <button className="btn btn-sm btn-outline-secondary">
+                                                        👍 Utile
+                                                    </button>
+                                                    <button className="btn btn-sm btn-outline-secondary">
+                                                        Rispondi
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )))
+                                : (
+                                    <div className="d-flex justify-content-between align-items-center mb-4">
+                                        <h3>Nessuna Recensione disponibile</h3>
+                                        <button className="btn btn-dark">Scrivi una recensione</button>
+                                    </div>
+                                )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     )
 }
