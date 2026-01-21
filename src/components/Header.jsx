@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Logo from "../assets/image/header.png"
+import Logo from "../assets/image/logo_f.png"
 
 export default function Header() {
     const navLinks = [

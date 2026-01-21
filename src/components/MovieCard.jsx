@@ -24,6 +24,9 @@ export default function MovieCard({ movie }) {
                 <div className="small text-white">
                     <strong>Regia:</strong> {movie.director}
                 </div>
+                <button className="btn btn-sm btn-outline-light mt-2 w-100">
+                    Maggiori info
+                </button>
             </div>
         </div>
     )
