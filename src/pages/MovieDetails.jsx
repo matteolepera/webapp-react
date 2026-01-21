@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import axios from "axios"
+import ReviewCard from "../components/ReviewCard";
+import { Link } from "react-router-dom";
 
 export default function MovieDetails() {
     const { id } = useParams();
@@ -23,7 +25,7 @@ export default function MovieDetails() {
                 className="position-relative"
                 style={{
                     height: '60vh',
-                    background: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(33,37,41,1)), url(http://localhost:4416/img/${movie.image})`,
+                    backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(33,37,41,1)), url(http://localhost:4416/img/${movie.image})`,
                     backgroundSize: 'cover',
                 }}
             >
@@ -36,6 +38,7 @@ export default function MovieDetails() {
                                 <span className="badge bg-dark border border-secondary">{movie.genre}</span>
                             </div>
                             <p className=" mb-3">{movie.abstract}</p>
+                            <Link to={"/movies"} className="btn btn-light btn-lg me-2">🔙 Torna indietro</Link>
                             <button className="btn btn-light btn-lg me-2">
                                 ▶️ Riproduci
                             </button>
@@ -54,30 +57,7 @@ export default function MovieDetails() {
                         <div className="row g-3">
                             {movie.reviews && movie.reviews.length > 0 ? (
                                 movie.reviews.map((review) => (
-                                    <div key={review.id} className="col-12">
-                                        <div className="card text-bg-dark border-secondary">
-                                            <div className="card-body">
-                                                <div className="d-flex justify-content-between align-items-start mb-2">
-                                                    <div>
-                                                        <h5 className="card-title mb-1">{review.name}</h5>
-                                                        <small className="text-white">{review.text}</small>
-                                                    </div>
-                                                    <span className="badge bg-warning text-dark">
-                                                        ⭐ {review.vote}/10
-                                                    </span>
-                                                </div>
-                                                <p className="card-text mt-3"></p>
-                                                <div className="d-flex gap-2 mt-3">
-                                                    <button className="btn btn-sm btn-outline-secondary">
-                                                        👍 Utile
-                                                    </button>
-                                                    <button className="btn btn-sm btn-outline-secondary">
-                                                        Rispondi
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <ReviewCard key={review.id} review={review} />
                                 )))
                                 : (
                                     <div className="d-flex justify-content-between align-items-center mb-4">
@@ -89,7 +69,7 @@ export default function MovieDetails() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
 
 
     )
