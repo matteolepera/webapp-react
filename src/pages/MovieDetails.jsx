@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom"
 import axios from "axios"
 import ReviewCard from "../components/ReviewCard";
 import { Link } from "react-router-dom";
+import ReviewForm from "../components/ReviewForm";
 
 export default function MovieDetails() {
     const { id } = useParams();
@@ -51,7 +52,6 @@ export default function MovieDetails() {
                     <div className="col-12">
                         <div className="d-flex justify-content-between align-items-center mb-4">
                             <h3>Recensioni</h3>
-                            <button className="btn btn-dark">Scrivi una recensione</button>
                         </div>
 
                         <div className="row g-3">
@@ -59,12 +59,13 @@ export default function MovieDetails() {
                                 movie.reviews.map((review) => (
                                     <ReviewCard key={review.id} review={review} />
                                 )))
+
                                 : (
                                     <div className="d-flex justify-content-between align-items-center mb-4">
                                         <h3>Nessuna Recensione disponibile</h3>
-                                        <button className="btn btn-dark">Scrivi una recensione</button>
                                     </div>
                                 )}
+                            <ReviewForm />
                         </div>
                     </div>
                 </div>
