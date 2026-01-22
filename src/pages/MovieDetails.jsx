@@ -65,7 +65,7 @@ export default function MovieDetails() {
                                         <h3>Nessuna Recensione disponibile</h3>
                                     </div>
                                 )}
-                            <ReviewForm />
+                            <ReviewForm movieId={movie.id} />
                         </div>
                     </div>
                 </div>
